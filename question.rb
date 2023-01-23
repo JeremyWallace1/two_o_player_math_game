@@ -1,3 +1,4 @@
+require 'colorize'
 class Question
   attr_accessor :question, :answer
 
@@ -12,31 +13,31 @@ class Question
   def quest(which_type, num1, num2)
     case @which_type
       when 0
-        @question = "What does #{@num1} plus #{@num2} equal?"
+        "What does #{"#{@num1}".red} plus #{"#{@num2}".green} equal?"
       when 1
-        @question = "What does #{@num1} minus #{@num2} equal?"
+        "What does #{"#{@num1}".red} minus #{"#{@num2}".green} equal?"
       when 2
-        @question = "What does #{@num1} multiplied by #{@num2} equal?"
+        "What does #{"#{@num1}".red} multiplied by #{"#{@num2}".green} equal?"
       when 3
-        @question = "What does #{@num1} divided by #{@num2} equal?"
+        "What does #{"#{@num1}".red} mod #{"#{@num2}".green} equal?"
       else
-        @question = "ERROR"
+        "ERROR".red
     end
   end
 
   def ans(which_type, num1, num2)
     case @which_type
       when 0
-        @answer = @num1 + @num2
+        @num1 + @num2
       when 1
-        @answer = @num1 - @num2
+        @num1 - @num2
       when 2
-        @answer = @num1 * @num2
+        @num1 * @num2
       when 3
-        @answer = @num1 / @num2
+        @num1 % @num2
       else
-        @answer = 0
+        0
     end
   end
-  
+
 end
